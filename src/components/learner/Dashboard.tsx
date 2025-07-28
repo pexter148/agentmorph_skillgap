@@ -3,7 +3,8 @@ import { useApp } from '../../context/AppContext';
 import ProgressWorkflow from './ProgressWorkflow';
 import SkillGapCard from './SkillGapCard';
 import LearningPathCard from './LearningPathCard';
-import { ClockIcon, TrophyIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import GenAIInsights from './GenAIInsights';
+import { ClockIcon, TrophyIcon, MagnifyingGlassIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 const Dashboard: React.FC = () => {
   const { currentUser } = useApp();
@@ -30,6 +31,12 @@ const Dashboard: React.FC = () => {
       value: `${currentUser.completionRate}%`,
       icon: TrophyIcon,
       color: 'text-green-600'
+    },
+    {
+      name: 'AI Insights',
+      value: '3 New',
+      icon: SparklesIcon,
+      color: 'text-purple-600'
     }
   ];
 
@@ -41,11 +48,11 @@ const Dashboard: React.FC = () => {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat) => (
-          <div key={stat.name} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div key={stat.name} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
             <div className="flex items-center">
-              <div className={`p-3 rounded-lg bg-gray-50`}>
+              <div className="p-3 rounded-lg bg-gradient-to-r from-orange-50 to-red-50">
                 <stat.icon className={`h-6 w-6 ${stat.color}`} />
               </div>
               <div className="ml-4">
@@ -63,7 +70,7 @@ const Dashboard: React.FC = () => {
         <ProgressWorkflow user={currentUser} />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Current Learning Path */}
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Current Learning Path</h2>
@@ -89,6 +96,12 @@ const Dashboard: React.FC = () => {
               <SkillGapCard key={gap.id} skillGap={gap} />
             ))}
           </div>
+        </div>
+
+        {/* GenAI Insights */}
+        <div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">AI-Powered Insights</h2>
+          <GenAIInsights />
         </div>
       </div>
     </div>

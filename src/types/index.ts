@@ -15,6 +15,15 @@ export interface User {
   lastActivity: Date;
 }
 
+export interface AdminUser {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  department: string;
+  permissions: string[];
+}
+
 export interface SkillGap {
   id: string;
   skill: string;
@@ -71,4 +80,36 @@ export interface DepartmentAnalytics {
   topSkillGaps: SkillGap[];
   engagementScore: number;
   trainingCost: number;
+}
+
+export interface GenAIInsight {
+  id: string;
+  type: 'recommendation' | 'progress' | 'opportunity' | 'alert';
+  title: string;
+  content: string;
+  priority: 'high' | 'medium' | 'low';
+  actionable: boolean;
+}
+
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  category: string;
+}
+
+export interface CodingChallenge {
+  id: string;
+  title: string;
+  description: string;
+  language: string;
+  starterCode: string;
+  testCases: {
+    input: string;
+    expectedOutput: string;
+  }[];
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
 }

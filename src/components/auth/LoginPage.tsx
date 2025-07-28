@@ -39,14 +39,14 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Logo and Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl mb-4 shadow-lg">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl mb-4 shadow-lg">
             <BookOpenIcon className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to LearningAI</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Hexaware Learning</h1>
           <p className="text-gray-600">Sign in to continue your personalized learning journey</p>
         </div>
 
@@ -68,7 +68,7 @@ const LoginPage: React.FC = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                 placeholder="Enter your email"
                 required
               />
@@ -84,7 +84,7 @@ const LoginPage: React.FC = () => {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors"
                   placeholder="Enter your password"
                   required
                 />
@@ -106,13 +106,13 @@ const LoginPage: React.FC = () => {
               <label className="flex items-center">
                 <input
                   type="checkbox"
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
                 />
                 <span className="ml-2 text-sm text-gray-600">Remember me</span>
               </label>
               <button
                 type="button"
-                className="text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                className="text-sm text-orange-600 hover:text-orange-700 font-medium transition-colors"
               >
                 Forgot password?
               </button>
@@ -121,7 +121,7 @@ const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-3 px-4 rounded-lg font-medium hover:from-orange-600 hover:to-red-700 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -142,22 +142,29 @@ const LoginPage: React.FC = () => {
                 onClick={() => demoLogin('praveen@hexaware.com')}
                 className="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <div className="text-sm font-medium text-gray-900">Praveen - Senior Developer</div>
+                <div className="text-sm font-medium text-gray-900">Praveen Kumar - Senior Developer</div>
                 <div className="text-xs text-gray-500">praveen@hexaware.com</div>
               </button>
               <button
-                onClick={() => demoLogin('john.smith@hexaware.com')}
+                onClick={() => demoLogin('vittal@hexaware.com')}
                 className="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <div className="text-sm font-medium text-gray-900">John Smith - DevOps Engineer</div>
-                <div className="text-xs text-gray-500">john.smith@hexaware.com</div>
+                <div className="text-sm font-medium text-gray-900">Vittal Reddy - Data Analyst</div>
+                <div className="text-xs text-gray-500">vittal@hexaware.com</div>
               </button>
               <button
-                onClick={() => demoLogin('maria.rodriguez@hexaware.com')}
+                onClick={() => demoLogin('esther@hexaware.com')}
                 className="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <div className="text-sm font-medium text-gray-900">Maria Rodriguez - Data Analyst</div>
-                <div className="text-xs text-gray-500">maria.rodriguez@hexaware.com</div>
+                <div className="text-sm font-medium text-gray-900">Esther Williams - DevOps Engineer</div>
+                <div className="text-xs text-gray-500">esther@hexaware.com</div>
+              </button>
+              <button
+                onClick={() => demoLogin('laksshaiya@hexaware.com')}
+                className="w-full text-left p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <div className="text-sm font-medium text-gray-900">Laksshaiya Patel - QA Engineer</div>
+                <div className="text-xs text-gray-500">laksshaiya@hexaware.com</div>
               </button>
             </div>
           </div>
@@ -166,9 +173,10 @@ const LoginPage: React.FC = () => {
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-sm text-gray-500">
-            Don't have an account?{' '}
+              onClick={() => navigate('/admin/login')}
+              className="text-orange-600 hover:text-orange-700 font-medium transition-colors"
             <button className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
-              Contact your administrator
+              Admin Login
             </button>
           </p>
         </div>

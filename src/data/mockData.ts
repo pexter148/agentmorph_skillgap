@@ -3,7 +3,7 @@ import { User, SkillGap, LearningPath, LearningModule, Assessment, AgentStatus, 
 export const mockUsers: User[] = [
   {
     id: '1',
-    name: 'Praveen',
+    name: 'Praveen Kumar',
     email: 'praveen@hexaware.com',
     department: 'Engineering',
     role: 'Senior Developer',
@@ -74,20 +74,54 @@ export const mockUsers: User[] = [
   },
   {
     id: '2',
-    name: 'John Smith',
-    email: 'john.smith@hexaware.com',
+    name: 'Vittal Reddy',
+    email: 'vittal@hexaware.com',
+    department: 'Data Science',
+    role: 'Data Analyst',
+    tsrRole: 'Senior Data Scientist',
+    profileStatus: 'loaded',
+    assessmentStatus: 'pending',
+    recommendationStatus: 'pending',
+    learningStatus: 'not-started',
+    completionRate: 15,
+    lastActivity: new Date('2025-01-19T14:15:00'),
+    skillGaps: [
+      {
+        id: '3',
+        skill: 'Machine Learning',
+        currentLevel: 2,
+        requiredLevel: 5,
+        gap: 3,
+        priority: 'high',
+        category: 'AI/ML'
+      },
+      {
+        id: '4',
+        skill: 'Python Advanced',
+        currentLevel: 3,
+        requiredLevel: 4,
+        gap: 1,
+        priority: 'medium',
+        category: 'Programming'
+      }
+    ]
+  },
+  {
+    id: '3',
+    name: 'Esther Williams',
+    email: 'esther@hexaware.com',
     department: 'Engineering',
     role: 'DevOps Engineer',
     tsrRole: 'Cloud Solutions Architect',
     profileStatus: 'loaded',
     assessmentStatus: 'in-progress',
-    recommendationStatus: 'pending',
+    recommendationStatus: 'generating',
     learningStatus: 'not-started',
-    completionRate: 25,
-    lastActivity: new Date('2025-01-19T14:15:00'),
+    completionRate: 35,
+    lastActivity: new Date('2025-01-20T16:45:00'),
     skillGaps: [
       {
-        id: '3',
+        id: '5',
         skill: 'Kubernetes',
         currentLevel: 2,
         requiredLevel: 5,
@@ -96,7 +130,7 @@ export const mockUsers: User[] = [
         category: 'DevOps'
       },
       {
-        id: '4',
+        id: '6',
         skill: 'AWS Lambda',
         currentLevel: 1,
         requiredLevel: 4,
@@ -107,29 +141,50 @@ export const mockUsers: User[] = [
     ]
   },
   {
-    id: '3',
-    name: 'Maria Rodriguez',
-    email: 'maria.rodriguez@hexaware.com',
-    department: 'Data Science',
-    role: 'Data Analyst',
-    tsrRole: 'Senior Data Scientist',
+    id: '4',
+    name: 'Laksshaiya Patel',
+    email: 'laksshaiya@hexaware.com',
+    department: 'QA',
+    role: 'QA Engineer',
+    tsrRole: 'Test Automation Lead',
     profileStatus: 'loaded',
     assessmentStatus: 'completed',
     recommendationStatus: 'ready',
     learningStatus: 'in-progress',
-    completionRate: 85,
-    lastActivity: new Date('2025-01-20T16:45:00'),
+    completionRate: 55,
+    lastActivity: new Date('2025-01-20T11:20:00'),
     skillGaps: [
       {
-        id: '5',
-        skill: 'Machine Learning',
+        id: '7',
+        skill: 'Automation Testing',
+        currentLevel: 2,
+        requiredLevel: 4,
+        gap: 2,
+        priority: 'high',
+        category: 'Testing'
+      },
+      {
+        id: '8',
+        skill: 'Selenium WebDriver',
         currentLevel: 3,
         requiredLevel: 5,
         gap: 2,
-        priority: 'high',
-        category: 'Data Science'
+        priority: 'medium',
+        category: 'Testing'
       }
     ]
+  }
+];
+
+// Admin users - separate from regular users
+export const mockAdminUsers = [
+  {
+    id: 'admin-1',
+    name: 'Admin User',
+    email: 'admin@hexaware.com',
+    role: 'System Administrator',
+    department: 'IT',
+    permissions: ['user_management', 'analytics', 'system_config']
   }
 ];
 
@@ -145,8 +200,8 @@ export const mockAssessments: Assessment[] = [
   },
   {
     id: 'assess-2',
-    userId: '1',
-    competency: 'Microservices',
+    userId: '4',
+    competency: 'Automation Testing',
     score: 82,
     maxScore: 100,
     completedAt: new Date('2025-01-17T14:30:00'),
@@ -180,12 +235,12 @@ export const mockAgentStatus: AgentStatus[] = [
     lastProcessed: new Date('2025-01-20T16:59:00')
   },
   {
-    name: 'Tracker Agent',
-    status: 'idle',
-    queueSize: 1,
-    avgLatency: 0.8,
-    errorRate: 0.00,
-    lastProcessed: new Date('2025-01-20T16:57:00')
+    name: 'GenAI Agent',
+    status: 'processing',
+    queueSize: 2,
+    avgLatency: 2.5,
+    errorRate: 0.03,
+    lastProcessed: new Date('2025-01-20T16:59:00')
   }
 ];
 
@@ -252,5 +307,33 @@ export const mockDepartmentAnalytics: DepartmentAnalytics[] = [
     ],
     engagementScore: 63,
     trainingCost: 67000
+  }
+];
+
+// GenAI Mock Data
+export const mockGenAIInsights = [
+  {
+    id: 'insight-1',
+    type: 'recommendation',
+    title: 'Trending Skills in Your Department',
+    content: 'Based on industry trends, React Native and Kubernetes are becoming essential skills for your role.',
+    priority: 'high',
+    actionable: true
+  },
+  {
+    id: 'insight-2',
+    type: 'progress',
+    title: 'Learning Velocity Analysis',
+    content: 'You\'re learning 23% faster than the average learner in similar roles.',
+    priority: 'medium',
+    actionable: false
+  },
+  {
+    id: 'insight-3',
+    type: 'opportunity',
+    title: 'Career Path Suggestion',
+    content: 'Completing your current path could qualify you for Senior Full Stack Developer positions.',
+    priority: 'high',
+    actionable: true
   }
 ];
